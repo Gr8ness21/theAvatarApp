@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Avatar App</title>
+    <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+    <h1>Air Character Index Page</h1>
+    <ul>
+        <% for(var i=0; i < airChars.length; i++){ %>
+            <li>
+                The <a href="/airChar/<%=i%>">
+                    <%=airChars[i].name; %>
+                </a> is
+                <%=airChars[i].town; %>. <% if(airChars[i].mainChar===true){ %> They are a main character <% } else { %>
+                            They are not a main character <% } %>
+                                <form action="/airChar/<%=i; %>?_method=DELETE" method="POST">
+                                    <input type="submit" value="DELETE" />
+                                </form>
+                                <!-- Add edit link here  -->
+                                <a href="/airChar/<%=i; %>/edit">Edit</a>
+            </li>
+            <% } %>
+    </ul>
+    <nav>
+        <a href="/airChar/new">Create a New Character</a>
+    </nav>
+</body>
+
+</html>

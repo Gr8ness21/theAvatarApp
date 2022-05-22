@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Nomad Details Page</title>
+</head>
+<body>
+    <h1><%= airChars.name %> Show Page</h1>
+    <p>They first apeared here, at <%= airChars.town %> </p>
+    
+    <% if (airChars.mainChar) { %>
+        <p>They are a main character!</p>
+    <% } else { %>
+        <p>They are not a main character!</p>
+    <% } %>
+
+    <a href="/airChar">Back to Air Nomad Index</a>
+</body>
+</html>

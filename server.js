@@ -16,15 +16,16 @@ app.use(methodOverride("_method"));
 
 
 // ALL ROUTES
-// Index
+// INDEX
 app.get("/airChar", (req, res) => {
 	res.render("indexAir.ejs", { airChars: airChars });
 });
 
-// // New
-// app.get("/airChar/new", (req, res) => {
-// 	res.render("newAir.ejs");
-// });
+// NEW
+app.get("/airChar/new", (req, res) => {
+	res.render("newAir.ejs");
+	// res.send("page info coming soon")
+});
 
 // // D
 // app.delete("/airChar/:indexOfAirCharArray", (req, res) => {
@@ -44,17 +45,17 @@ app.get("/airChar", (req, res) => {
 // 	res.redirect("/airChar");
 // });
 
-// // Create
-// app.post("/airChar", (req, res) => {
-// 	if (req.body.mainChar === "on") {
-// 		req.body.mainchar = true;
-// 	} else {
-// 		req.body.mainChar = false;
-// 	}
-// 	air.push(req.body);
-// 	console.log(airChars);
-// 	res.redirect("/airChar");
-// });
+// CREATE
+app.post("/airChar", (req, res) => {
+	if (req.body.mainChar === "on") {
+		req.body.mainchar = true;
+	} else {
+		req.body.mainChar = false;
+	}
+	airChars.push(req.body);
+	console.log(airChars);
+	res.redirect("/airChar");
+});
 
 // // E
 // app.get("/airChar/:indexOfAirCharArray/edit", (req, res) => {

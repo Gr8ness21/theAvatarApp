@@ -33,17 +33,17 @@ app.get("/airChar/new", (req, res) => {
 // 	res.redirect("/airChar"); //redirect back to index route
 // });
 
-// // U
-// app.put("/airChar/:indexOfAirCharArray", (req, res) => {
+// // UPDATE
+app.put("/airChar/:indexOfAirCharArray", (req, res) => {
 	
-// 	if (req.body.mainChar === "on") {
-// 		req.body.mainChar = true;
-// 	} else {
-// 		req.body.mainChar = false;
-// 	}
-// 	fruits[req.params.indexOfAirCharArray] = req.body;
-// 	res.redirect("/airChar");
-// });
+	if (req.body.mainChar === "on") {
+		req.body.mainChar = true;
+	} else {
+		req.body.mainChar = false;
+	}
+	airChars[req.params.indexOfAirCharArray] = req.body;
+	res.redirect("/airChar");
+});
 
 // CREATE
 app.post("/airChar", (req, res) => {
@@ -57,16 +57,16 @@ app.post("/airChar", (req, res) => {
 	res.redirect("/airChar");
 });
 
-// // E
-// app.get("/airChar/:indexOfAirCharArray/edit", (req, res) => {
-// 	res.render(
-// 		"editAir.ejs",
-// 		{
-// 			air: airChars[req.params.indexOfAirCharArray],
-// 			index: req.params.indexOfAirCharArray,
-// 		}
-// 	);
-// });
+// EDIT
+app.get("/airChar/:indexOfAirCharArray/edit", (req, res) => {
+	res.render(
+		"editAir.ejs",
+		{
+			airChars: airChars[req.params.indexOfAirCharArray],
+			index: req.params.indexOfAirCharArray,
+		}
+	);
+});
 
 // Show
 app.get("/airChar/:indexOfAirCharArray", (req, res) => {
